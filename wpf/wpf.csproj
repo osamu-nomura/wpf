@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="hsb">
+      <HintPath>..\..\hsb\hsb\bin\Debug\hsb.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArguments\ValidationCheckedEventArgs.cs" />
+    <Compile Include="EventArguments\ValueChangedEventArgs.cs" />
+    <Compile Include="EventArguments\ValueChangingEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyItem.cs" />
+    <Compile Include="PropertyItemBase.cs" />
+    <Compile Include="Utils\Result.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
