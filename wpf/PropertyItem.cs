@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using hsb.WPF.Utils;
+using hsb.WPF.Utilities;
 using hsb.WPF.EventArguments;
 using hsb.WPF.EventArguments;
 

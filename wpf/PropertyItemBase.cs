@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 using hsb;
-using hsb.WPF.Utils;
+using hsb.WPF.Utilities;
 using hsb.WPF.EventArguments;
 
 namespace hsb.WPF

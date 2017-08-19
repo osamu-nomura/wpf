@@ -33,6 +33,8 @@
     <Reference Include="hsb">
       <HintPath>..\..\hsb\hsb\bin\Debug\hsb.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,13 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBindModelBase.cs" />
+    <Compile Include="DataBindPropertyItem.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="EventArguments\CloseViewEventArgs.cs" />
+    <Compile Include="EventArguments\PropertyItemEventArgs.cs" />
+    <Compile Include="EventArguments\PropertyItemInvalidatedEventArgs.cs" />
+    <Compile Include="EventArguments\ShowMessageBoxEventArgs.cs" />
     <Compile Include="EventArguments\ValidationCheckedEventArgs.cs" />
     <Compile Include="EventArguments\ValueChangedEventArgs.cs" />
     <Compile Include="EventArguments\ValueChangingEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyItem.cs" />
     <Compile Include="PropertyItemBase.cs" />
-    <Compile Include="Utils\Result.cs" />
+    <Compile Include="PropertyItems.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\Result.cs" />
+    <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

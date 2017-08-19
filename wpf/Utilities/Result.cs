@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace hsb.WPF.Utils
+namespace hsb.WPF.Utilities
 {
     #region 【Class : Result】
     /// <summary>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using hsb;
-using hsb.WPF.Utils;
+using hsb.WPF.Utilities;
 
 namespace hsb.WPF.EventArguments
 {
