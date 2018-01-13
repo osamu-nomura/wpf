@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using hsb.WPF.Utilities;
 using hsb.WPF.EventArguments;
-using hsb.WPF.EventArguments;
 
 namespace hsb.WPF
 {

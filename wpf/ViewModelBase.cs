@@ -195,7 +195,7 @@ namespace hsb.WPF
         }
         #endregion
 
-        #region - InvokeShowMessageBox
+        #region - InvokeShowMessageBox : ShowMessageBoxイベントを呼び出す。
         /// <summary>
         /// ShowMessageBoxイベントを呼び出す。 
         /// </summary>
