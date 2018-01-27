@@ -35,6 +35,8 @@ namespace SampleApp
             // ViewModelとViewを関係づける
             Views = new ViewManager();
             Views.Add(typeof(ViewModels.MainViewModel), typeof(Views.MainWindow));
+            Views.Add(typeof(ViewModels.SubViewModel), typeof(Views.SubWindow));
+            Views.Add(typeof(ViewModels.PreviewViewModel), typeof(Views.PreviewWindow));
         }
         #endregion
 

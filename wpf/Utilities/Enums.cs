@@ -20,5 +20,42 @@ namespace hsb.WPF.Utilities
     }
     #endregion
 
+    #region - IOFilterDirection : IOフィルター入出力方向
+    /// <summary>
+    /// IOフィルター入出力方向
+    /// </summary>
+    public enum IOFilterDirection
+    {
+        Input,  // 入力
+        Output  // 出力
+    }
+    public static class IOFilterDirectionExtesion
+    {
+        #region - IsInput : 入力？
+        /// <summary>
+        /// 入力？
+        /// </summary>
+        /// <param name="direction">IOフィルター入出力方向</param>
+        /// <returns>True : 入力 / False : 出力</returns>
+        public static bool IsInput(this IOFilterDirection direction)
+        {
+            return direction == IOFilterDirection.Input;
+        }
+        #endregion
+
+        #region - IsOutput : 出力？
+        /// <summary>
+        /// 出力？
+        /// </summary>
+        /// <param name="direction">IOフィルター入出力方向</param>
+        /// <returns>True : 出力 / False : 入力</returns>
+        public static bool IsOutput(this IOFilterDirection direction)
+        {
+            return direction == IOFilterDirection.Output;
+        }
+        #endregion
+    }
+    #endregion
+
     #endregion
 }

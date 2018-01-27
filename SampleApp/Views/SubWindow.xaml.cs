@@ -16,31 +16,22 @@ using hsb.WPF.Utilities;
 
 namespace SampleApp.Views
 {
-    #region 【Class : MainWindow】
+    #region 【Class : SubWindow】
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// SubWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SubWindow : Window
     {
         #region ■ Constructor ■
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public MainWindow()
+        public SubWindow()
         {
             // 拡張メソッドによる初期化処理を最初に呼び出す
             this.Setup();
-            InitializeComponent();
 
-            // 書籍リストをダブルクリックされた時の処理
-            BookList.MouseDoubleClick += (o, e) =>
-                {
-                    var vm = DataContext as ViewModels.MainViewModel;
-                    if (vm != null)
-                    {
-                        vm.EditBookCommand.Execute(null);
-                    }
-                };
+            InitializeComponent();
         }
         #endregion
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using hsb.WPF;
 using hsb.WPF.Utilities;
 
 namespace SampleApp.Views
@@ -22,7 +23,7 @@ namespace SampleApp.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region ■ Constructor ■
+        #region ■ Constructor
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -31,16 +32,6 @@ namespace SampleApp.Views
             // 拡張メソッドによる初期化処理を最初に呼び出す
             this.Setup();
             InitializeComponent();
-
-            // 書籍リストをダブルクリックされた時の処理
-            BookList.MouseDoubleClick += (o, e) =>
-                {
-                    var vm = DataContext as ViewModels.MainViewModel;
-                    if (vm != null)
-                    {
-                        vm.EditBookCommand.Execute(null);
-                    }
-                };
         }
         #endregion
     }

@@ -272,7 +272,14 @@ namespace hsb.WPF
             /// <summary>
             /// ドローイングコンテキスト
             /// </summary>
-            private DrawingContext DC { get; set; }
+            public DrawingContext DC { get; private set; }
+            #endregion
+
+            #region - PixelsPerDip : PixelsPerDip
+            /// <summary>
+            /// PixelsPerDip
+            /// </summary>
+            public double PixelsPerDip { get; private set; }
             #endregion
 
             #region - OffsetX : X座標のオフセット値
@@ -316,9 +323,10 @@ namespace hsb.WPF
             /// <summary>
             /// コンストラクタ
             /// </summary>
-            public DrawingContextHelper(DrawingContext dc, double offsetX, double offsetY)
+            public DrawingContextHelper(DrawingContext dc, double pixelsPerDip, double offsetX, double offsetY)
             {
                 DC = dc;
+                PixelsPerDip = pixelsPerDip;
                 OffsetX = offsetX;
                 OffsetY = offsetY;
 
@@ -395,7 +403,7 @@ namespace hsb.WPF
                 return new FormattedText(s,
                     CultureInfo.CurrentCulture,
                     FlowDirection.LeftToRight,
-                    typeface, size, b);
+                    typeface, size, b, PixelsPerDip);
             }
             #endregion
 
@@ -411,7 +419,7 @@ namespace hsb.WPF
                 return new FormattedText(s,
                     CultureInfo.CurrentCulture,
                     FlowDirection.LeftToRight,
-                    fontInfo.Typeface, fontInfo.FontSize, fontInfo.Brush);
+                    fontInfo.Typeface, fontInfo.FontSize, fontInfo.Brush, PixelsPerDip);
             }
             #endregion
 
@@ -1902,9 +1910,9 @@ namespace hsb.WPF
         /// </summary>
         /// <param name="dc">DrawingContext</param>
         /// <returns>DrawingContextHelper</returns>
-        protected DrawingContextHelper GetDrawingContextHelper(DrawingContext dc)
+        protected DrawingContextHelper GetDrawingContextHelper(DrawingContext dc, double pixelsPerDip)
         {
-            return new DrawingContextHelper(dc, OffsetX, OffsetY);
+            return new DrawingContextHelper(dc, pixelsPerDip, OffsetX, OffsetY);
         }
         #endregion
 
@@ -1930,7 +1938,7 @@ namespace hsb.WPF
         /// <param name="dc">DrawingContext</param>
         /// <param name="arg">ReportArgument</param>
         /// <returns>bool</returns>
-        protected virtual bool BeforeDrawingPage(DrawingContext dc, ReportArgument arg)
+        protected virtual bool BeforeDrawingPage(DrawingContextHelper dch, ReportArgument arg)
         {
             // 派生クラスでオーバーライドする
             return true;
@@ -1943,7 +1951,7 @@ namespace hsb.WPF
         /// </summary>
         /// <param name="dc">DrawingContext</param>
         /// <param name="arg">ReportArgument</param>
-        protected virtual void DrawingPage(DrawingContext dc, ReportArgument arg)
+        protected virtual void DrawingPage(DrawingContextHelper dch, ReportArgument arg)
         {
             // 派生クラスでオーバーライドする
         }
@@ -1955,7 +1963,7 @@ namespace hsb.WPF
         /// </summary>
         /// <param name="dc">DrawingContext</param>
         /// <param name="arg">ReportArgument</param>
-        protected virtual void AfterDrawingPage(DrawingContext dc, ReportArgument arg)
+        protected virtual void AfterDrawingPage(DrawingContextHelper dch, ReportArgument arg)
         {
             // 派生クラスでオーバーライドする
         }
@@ -1979,12 +1987,14 @@ namespace hsb.WPF
                 {
                     var container = new ContainerVisual();
                     var dv = new DrawingVisual();
+                    var pixelsPerDip = VisualTreeHelper.GetDpi(dv).PixelsPerDip;
                     using (var dc = dv.RenderOpen())
                     {
-                        if (BeforeDrawingPage(dc, arg))
+                        var dch = GetDrawingContextHelper(dc, pixelsPerDip);
+                        if (BeforeDrawingPage(dch, arg))
                         {
-                            DrawingPage(dc, arg);
-                            AfterDrawingPage(dc, arg);
+                            DrawingPage(dch, arg);
+                            AfterDrawingPage(dch, arg);
                         }
                     }
                     container.Children.Add(dv);

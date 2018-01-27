@@ -38,8 +38,11 @@
     <Reference Include="hsb">
       <HintPath>..\..\hsb\hsb\bin\Debug\hsb.dll</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,10 +65,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Reports\BookListReport.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\PreviewViewModel.cs" />
+    <Compile Include="ViewModels\SubViewModel.cs" />
+    <Compile Include="Views\DataConverters.cs" />
+    <Compile Include="Views\DataSources.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PreviewWindow.xaml.cs">
+      <DependentUpon>PreviewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubWindow.xaml.cs">
+      <DependentUpon>SubWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -100,13 +114,19 @@
       <Name>wpf</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PreviewWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -42,14 +42,14 @@ namespace hsb.WPF
         /// </summary>
         public T Value
         {
-            get { return (IOFilter != null) ? IOFilter(_Value, true) : _Value; }
+            get { return (IOFilter != null) ? IOFilter(_Value, IOFilterDirection.Output) : _Value; }
             set
             {
                 if (IsReadOnly)
                     throw new ApplicationException("Can't set value");
 
                 if (IOFilter != null)
-                    value = IOFilter(value, false);
+                    value = IOFilter(value, IOFilterDirection.Input);
 
                 if (!Eq(_Value, value))
                 {
@@ -89,7 +89,7 @@ namespace hsb.WPF
         /// <summary>
         /// IOフィルター用デリゲート
         /// </summary>
-        public Func<T, bool, T> IOFilter;
+        public Func<T, IOFilterDirection, T> IOFilter;
         #endregion
 
         #endregion

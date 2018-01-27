@@ -25,7 +25,7 @@ namespace hsb.WPF.Utilities
         }
         #endregion
 
-        #region ■ Private Properties
+        #region ■ Properties
 
         #region - Value : 正否の値
         /// <summary>
@@ -34,21 +34,21 @@ namespace hsb.WPF.Utilities
         private bool Value { get; set; }
         #endregion
 
-        #region **** Property : Successful (Get Only)
+        #region - Successful : 成功した
         /// <summary>
         /// 成功した
         /// </summary>
         public bool Successful { get { return Value; } }
         #endregion
 
-        #region **** Property : Failed (Get Only)
+        #region - Failed : 失敗した
         /// <summary>
         /// 失敗した
         /// </summary>
         public bool Failed { get { return !Value; } }
         #endregion
 
-        #region **** Property : ErrorMessage (Set private only)
+        #region - ErrorMessage : エラーメッセージ
         /// <summary>
         /// エラーメッセージ
         /// </summary>
@@ -102,7 +102,7 @@ namespace hsb.WPF.Utilities
         /// <returns>Result</returns>
         public static Result Create(bool result, string errorMessage)
         {
-            return result ? _Success : Result.Fail(errorMessage);
+            return result ? _Success : Fail(errorMessage);
         }
         #endregion
 

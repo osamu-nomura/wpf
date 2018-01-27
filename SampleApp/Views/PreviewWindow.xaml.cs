@@ -16,31 +16,21 @@ using hsb.WPF.Utilities;
 
 namespace SampleApp.Views
 {
-    #region 【Class : MainWindow】
+    #region 【Class : PreviewWindow】
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// PreviewWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PreviewWindow : Window
     {
         #region ■ Constructor ■
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public MainWindow()
+        public PreviewWindow()
         {
             // 拡張メソッドによる初期化処理を最初に呼び出す
             this.Setup();
             InitializeComponent();
-
-            // 書籍リストをダブルクリックされた時の処理
-            BookList.MouseDoubleClick += (o, e) =>
-                {
-                    var vm = DataContext as ViewModels.MainViewModel;
-                    if (vm != null)
-                    {
-                        vm.EditBookCommand.Execute(null);
-                    }
-                };
         }
         #endregion
     }

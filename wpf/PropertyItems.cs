@@ -69,7 +69,7 @@ namespace hsb.WPF
         /// </summary>
         public virtual bool IsChanged
         {
-            get { return Properties.Where(v => IsChangedFilter?.Invoke(v) == true && v.IsChanged).Any(); }
+            get { return Properties.Where(v => (IsChangedFilter?.Invoke(v) ?? true) == true && v.IsChanged).Any(); }
         }
         #endregion
 
@@ -81,7 +81,7 @@ namespace hsb.WPF
         {
             get
             {
-                return Properties.Where(v => HasErrorFilter?.Invoke(v) == true && v.HasError).Any();
+                return Properties.Where(v => (HasErrorFilter?.Invoke(v) ?? true) == true && v.HasError).Any();
             }
         }
         #endregion
