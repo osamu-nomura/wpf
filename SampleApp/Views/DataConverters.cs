@@ -19,7 +19,7 @@ namespace SampleApp.Views
     {
         protected override string Enum2String(BookCategories? e)
         {
-            return (e.HasValue) ? AttributeUtil.GetFieldDisplayName(e.Value) : "";
+            return (e.HasValue) ? AttributeUtil.GetEnumFieldDisplayName(e.Value) : "";
         }
     }
     #endregion

@@ -119,7 +119,7 @@ namespace SampleApp.Reports
                 Table[2].DrawText(book.Author, TextAlignment.Left, dch);
                 Table[3].DrawText(book.Publisher, TextAlignment.Left, dch);
                 if (book.Category.HasValue)
-                    Table[4].DrawText(AttributeUtil.GetFieldDisplayName(book.Category.Value), TextAlignment.Left, dch);
+                    Table[4].DrawText(AttributeUtil.GetEnumFieldDisplayName(book.Category.Value), TextAlignment.Left, dch);
                 if (book.Price.HasValue)
                     Table[5].DrawText(book.Price.Value.ToString("#,##0円"), TextAlignment.Right, dch);
                 if (book.PurchaseDate.HasValue)
