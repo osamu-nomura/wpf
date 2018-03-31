@@ -51,7 +51,7 @@ namespace SampleApp.ViewModels
         public SubViewModel(Models.Book book)
         {
             // プロパティ値の初期設定
-            BookProperty = CreateDataBindProperty("Book", book ?? new Models.Book());
+            BookProperty = CreateDataBindProperty(nameof(Book), book ?? new Models.Book());
 
             // コマンドの初期設定
             UpdateBookCommand = CreateCommand((book == null) ? "登　録" : "更　新",

@@ -53,7 +53,7 @@ namespace hsb.WPF
 
                 if (!Eq(_Value, value))
                 {
-                    var result = (Validator != null) ? Validator(value) : Result.Success();
+                    var result = Validator?.Invoke(value) ?? Result.Success();
                     SetError(result);
                     InvokeValidationChecked(result, value);
                     if (result.Failed)
@@ -193,7 +193,7 @@ namespace hsb.WPF
         /// <returns>Result</returns>
         public override Result ValidationCheck()
         {
-            var result = (Validator != null) ? Validator(Value) : Result.Success();
+            var result = Validator?.Invoke(Value) ?? Result.Success();
             SetError(result);
             return result;
         }

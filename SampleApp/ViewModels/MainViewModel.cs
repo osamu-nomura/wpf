@@ -95,7 +95,7 @@ namespace SampleApp.ViewModels
         {
             // プロパティ値の設定
             Books = null;
-            SelectedBookProperty = CreateDataBindProperty<Models.Book>("SelectedBook", null);
+            SelectedBookProperty = CreateDataBindProperty<Models.Book>(nameof(SelectedBook), null);
 
             // コマンドの設定
             AddBookCommand = CreateCommand("書籍を追加", AddBook, null, "新たな書籍を追加します。");
