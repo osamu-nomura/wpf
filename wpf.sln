@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf", "wpf\wpf.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp.csproj", "{69E85D6B-7A50-4F9B-95E0-2D45BC0FAB5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc", "Calc\Calc.csproj", "{8F564532-8733-4462-BBEC-AB0DF2CDDD76}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{69E85D6B-7A50-4F9B-95E0-2D45BC0FAB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69E85D6B-7A50-4F9B-95E0-2D45BC0FAB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69E85D6B-7A50-4F9B-95E0-2D45BC0FAB5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F564532-8733-4462-BBEC-AB0DF2CDDD76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F564532-8733-4462-BBEC-AB0DF2CDDD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F564532-8733-4462-BBEC-AB0DF2CDDD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F564532-8733-4462-BBEC-AB0DF2CDDD76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

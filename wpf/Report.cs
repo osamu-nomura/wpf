@@ -939,7 +939,7 @@ namespace hsb.WPF
             public double Height { get; private set; }
             #endregion
 
-            #region - Rect : セル高さ
+            #region - Rect : セルの矩形
             /// <summary>
             /// セルの矩形
             /// </summary>
