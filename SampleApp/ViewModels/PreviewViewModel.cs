@@ -43,6 +43,7 @@ namespace SampleApp.ViewModels
             if (doc == null)
                 throw new ArgumentNullException();
 
+            Title = "蔵書リスト・プレビュー";
             SourceProperty = CreateDataBindProperty<IDocumentPaginatorSource>("Source", doc.GetFixedDocumentSequence());
         }
         #endregion

@@ -35,7 +35,7 @@ namespace hsb.WPF
                 if (_Name != value)
                 {
                     _Name = value;
-                    RaisePropertyChanged("Name");
+                    RaisePropertyChanged(nameof(Name));
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace hsb.WPF
                 if (_Description != value)
                 {
                     _Description = value;
-                    RaisePropertyChanged("Description");
+                    RaisePropertyChanged(nameof(Description));
                 }
             }
         }

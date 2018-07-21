@@ -107,6 +107,19 @@ namespace hsb.WPF
 
         #region ■ Properties 
 
+        #region - Title : タイトル
+        /// <summary>
+        /// タイトル
+        /// </summary>
+        public DataBindPropertyItem<string> TitleProperty { get; private set; }
+        public string Title
+        {
+            get { return TitleProperty.Value; }
+            set { TitleProperty.Value = value; }
+        }
+        #endregion
+
+
         #region - CloseViewCommand : クローズビューコマンド
         /// <summary>
         /// クローズビューコマンド
@@ -141,6 +154,9 @@ namespace hsb.WPF
         public ViewModelBase()
             : base()
         {
+            // タイトルプロパティの生成
+            TitleProperty = CreateDataBindProperty<string>(nameof(Title), null);
+
             // クロースビューコマンドの生成
             CloseViewCommand = CreateCommand(CloseViewCommandImplement, CanExecuteCloseViewCommand);
         }

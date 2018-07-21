@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:localViews="clr-namespace:SampleApp.Views"
         xmlns:wpfBehaviors="clr-namespace:hsb.WPF.Behaviors;assembly=wpf"
-        Title="書籍の編集" Height="413" Width="588" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="{Binding Title}" Height="413" Width="588" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Window.Resources>
         <localViews:BookCategoriesSource x:Key="BookCategoriesSource" />
         <localViews:Decimal2String x:Key="Decimal2String" />

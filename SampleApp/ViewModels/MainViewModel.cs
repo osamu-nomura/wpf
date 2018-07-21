@@ -93,6 +93,8 @@ namespace SampleApp.ViewModels
         /// </summary>
         public MainViewModel() 
         {
+            Title = "蔵書管理";
+
             // プロパティ値の設定
             Books = null;
             SelectedBookProperty = CreateDataBindProperty<Models.Book>(nameof(SelectedBook), null);

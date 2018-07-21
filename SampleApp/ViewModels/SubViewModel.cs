@@ -50,6 +50,8 @@ namespace SampleApp.ViewModels
         /// <param name="book">書籍</param>
         public SubViewModel(Models.Book book)
         {
+            Title = "書籍の編集";
+
             // プロパティ値の初期設定
             BookProperty = CreateDataBindProperty(nameof(Book), book ?? new Models.Book());
 
