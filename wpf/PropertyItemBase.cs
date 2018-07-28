@@ -61,6 +61,13 @@ namespace hsb.WPF
         private object _Tag = null;
         #endregion
 
+        #region - : _Caption : キャプション
+        /// <summary>
+        /// キャプション
+        /// </summary>
+        private string _Caption = null;
+        #endregion
+
         #region - _Description : 説明
         /// <summary>
         /// 説明
@@ -84,7 +91,7 @@ namespace hsb.WPF
                 if (_Name != value)
                 {
                     _Name = value;
-                    RaisePropertyChanged("Name");
+                    RaisePropertyChanged(nameof(Name));
                 }
             }
         }
@@ -103,7 +110,7 @@ namespace hsb.WPF
                 if (_AcceptInvalidValue != value)
                 {
                     _AcceptInvalidValue = value;
-                    RaisePropertyChanged("AcceptInvalidValue");
+                    RaisePropertyChanged(nameof(AcceptInvalidValue));
                 }
             }
         }
@@ -121,7 +128,7 @@ namespace hsb.WPF
                 if (_IsChanged != value)
                 {
                     _IsChanged = value;
-                    RaisePropertyChanged("IsChanged");
+                    RaisePropertyChanged(nameof(IsChanged));
                 }
             }
         }
@@ -139,8 +146,8 @@ namespace hsb.WPF
                 if (_ErrorMessage != value)
                 {
                     _ErrorMessage = value;
-                    RaisePropertyChanged("ErrorMessage");
-                    RaisePropertyChanged("HasError");
+                    RaisePropertyChanged(nameof(ErrorMessage));
+                    RaisePropertyChanged(nameof(HasError));
                 }
             }
         }
@@ -165,7 +172,7 @@ namespace hsb.WPF
                 if (_IsReadOnly != value)
                 {
                     _IsReadOnly = value;
-                    RaisePropertyChanged("IsReadOnly");
+                    RaisePropertyChanged(nameof(IsReadOnly));
                 }
             }
         }
@@ -183,11 +190,24 @@ namespace hsb.WPF
                 if (_Tag != value)
                 {
                     _Tag = value;
-                    RaisePropertyChanged("Tag");
+                    RaisePropertyChanged(nameof(Tag));
                 }
             }
         }
         #endregion
+
+        public string Caption
+        {
+            get { return _Caption;  }
+            set
+            {
+                if (_Caption != value)
+                {
+                    _Caption = value;
+                    RaisePropertyChanged(nameof(Caption));
+                }
+            }
+        }
 
         #region - Description : 説明
         /// <summary>
@@ -201,7 +221,7 @@ namespace hsb.WPF
                 if (_Description != value)
                 {
                     _Description = value;
-                    RaisePropertyChanged("Description");
+                    RaisePropertyChanged(nameof(Description));
                 }
             }
         }

@@ -54,7 +54,8 @@ namespace SampleApp.Models
                 { 
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "書名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
-                    v.Description = "書籍名を入力してください。";
+                    v.Caption = "書籍名";
+                    v.Description = $"{v.Caption}を入力してください。";
                 });
 
             // 著者
@@ -62,7 +63,8 @@ namespace SampleApp.Models
                 {
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "著者名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
-                    v.Description = "著者名を入力してください。";
+                    v.Caption = "著者名";
+                    v.Description = $"{v.Caption}を入力してください。";
                 });
 
             // 出版社
@@ -70,35 +72,40 @@ namespace SampleApp.Models
                 {
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "出版社が未入力です。");
                     v.IOFilter = IOFilters.Trim;
-                    v.Description = "出版社名を入力してください。";
+                    v.Caption = "出版社名";
+                    v.Description = $"{v.Caption}を入力してください。";
                 });
 
             // カテゴリ
             CategoryProperty = CreateDataBindProperty<BookCategories?>("Category", null, v => 
                 {
                     v.CreateValidator(n => n.HasValue, "カテゴリーが未入力です。");
-                    v.Description = "カテゴリーを指定してください。";
+                    v.Caption = "カテゴリー";
+                    v.Description = $"{v.Caption}を指定してください。";
                 });
 
             // 価格
             PriceProperty = CreateDataBindProperty<decimal?>("Price", null, v =>
                 {
                     v.CreateValidator(n => n >= 0, "価格が不正です。");
-                    v.Description = "価格を入力してください。";
+                    v.Caption = "価格";
+                    v.Description = $"{v.Caption}を入力してください。";
                 });
 
             // 購入日
             PurchaseDateProperty = CreateDataBindProperty<DateTime?>("PurchaseDate", null, v =>
                 {
                     v.CreateValidator(d => d.HasValue, "購入日が未入力です。");
-                    v.Description = "購入日を入力してください。";
+                    v.Caption = "購入日";
+                    v.Description = $"{v.Caption}を入力してください。";
                 });
 
             // 評価点
             ReviewPointProperty = CreateDataBindProperty<int?>("ReviewPoint", null, v =>
                 {
                     v.CreateValidator(n => (n >= 0 && n <= 5), "評価点が不正です。");
-                    v.Description = "評価点を指定してください。";
+                    v.Caption = "評価点";
+                    v.Description = $"{v.Caption}を指定してください。";
                 });
         }
         #endregion

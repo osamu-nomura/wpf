@@ -6,6 +6,7 @@
         Title="{Binding Title}" Height="413" Width="588" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Window.Resources>
         <localViews:BookCategoriesSource x:Key="BookCategoriesSource" />
+        <localViews:CaptionFormat x:Key="CaptionFormat" />
         <localViews:Decimal2String x:Key="Decimal2String" />
         <localViews:ReviewPointsSource x:Key="ReviewPointsSource" />
         <localViews:ReviewPoint2Stars x:Key="ReviewPoint2Stars" />
@@ -27,7 +28,7 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="書名：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding TitleProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <TextBox Text="{Binding Title, ValidatesOnDataErrors=True}" 
                                          ToolTip="{Binding TitleProperty.Description}" 
                                          Width="300" VerticalContentAlignment="Center"  
@@ -38,7 +39,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="著者：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding AuthorProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <TextBox Text="{Binding Author, ValidatesOnDataErrors=True}" 
                                          ToolTip="{Binding AuthorProperty.Description}"
                                          Width="300" VerticalContentAlignment="Center" 
@@ -49,7 +50,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="出版社：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding PublisherProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <TextBox Text="{Binding Publisher, ValidatesOnDataErrors=True}" 
                                          ToolTip="{Binding PublisherProperty.Description}"
                                          Width="300" VerticalContentAlignment="Center" 
@@ -60,7 +61,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="カテゴリー：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding CategoryProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <ComboBox Width="150"  VerticalContentAlignment="Center"
                                       ItemsSource="{Binding Items, Source={StaticResource ResourceKey=BookCategoriesSource}}" 
                                       DisplayMemberPath="Name" SelectedValuePath="Value"
@@ -73,7 +74,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="価格：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding PriceProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <TextBox Text="{Binding Price, Converter={StaticResource ResourceKey=Decimal2String}, ValidatesOnDataErrors=True}" 
                                          ToolTip="{Binding PriceProperty.Description}"
                                          Width="150" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" 
@@ -85,7 +86,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="購入日：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding PurchaseDateProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <DatePicker SelectedDate="{Binding PurchaseDate, ValidatesOnDataErrors=True}" 
                                             ToolTip="{Binding PurchaseDateProperty.Description}"
                                             Width="200" VerticalContentAlignment="Center" />
@@ -95,7 +96,7 @@
 
                         <StackPanel Orientation="Vertical" Margin="0,0,0,4">
                             <StackPanel Orientation="Horizontal" Height="24" Margin="0,0,0,2">
-                                <TextBlock Text="評価点：" Width="70" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding ReviewPointProperty.Caption, Converter={StaticResource CaptionFormat}}" Width="70" VerticalAlignment="Center" />
                                 <ComboBox Width="150"  VerticalContentAlignment="Center"
                                       ItemsSource="{Binding Items, Source={StaticResource ResourceKey=ReviewPointsSource}}"
                                       SelectedValue="{Binding ReviewPoint, Mode=TwoWay, Converter={StaticResource ReviewPoint2Stars}, ValidatesOnDataErrors=True}"

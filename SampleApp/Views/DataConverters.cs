@@ -11,6 +11,19 @@ using SampleApp.Models;
 
 namespace SampleApp.Views
 {
+    #region 【Class : CaptionFormat】
+    /// <summary>
+    /// Caption -> [Caption]：
+    /// </summary>
+    class CaptionFormat : DataConverterBase<string, string>
+    {
+        public CaptionFormat()
+        {
+            Convert = (v, o) => $"{v}：";
+        }
+    }
+    #endregion
+
     #region 【Class : BookCategories2DisplayName】
     /// <summary>
     /// BookCategories -> String
@@ -32,8 +45,8 @@ namespace SampleApp.Views
     {
         public ReviewPoint2Stars()
         {
-            Convert = (v, o) => new string('★', (int)v);
-            ConvertBack = (v, o) => (v != null) ? ((string)v).Length : 0;
+            Convert = (v, o) => new string('★', v);
+            ConvertBack = (v, o) => (v != null) ? v.Length : 0;
         }
     }
     #endregion
