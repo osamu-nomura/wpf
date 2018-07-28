@@ -44,9 +44,19 @@ namespace hsb.WPF.Utilities
             // DataContext変更時のイベントハンドラを設定する
             window.DataContextChanged += (o, e) =>
             {
+                // 以前のViewModelに切断通知を送る
+                if (e.OldValue is ViewModelBase)
+                {
+                    var oldViewMolde = e.OldValue as ViewModelBase;
+                    oldViewMolde?.DisconnectedView();
+                }
+
                 var vm = window.DataContext as ViewModelBase;
                 if (vm != null)
                 {
+                    // GetViewデレゲートの設定
+                    vm.GetView = () => { return window; };
+
                     // ShowMessageBoxイベントのハンドラを設定
                     if ((options & WindowSetupOptions.SetShowMessageBoxHandler) == WindowSetupOptions.SetShowMessageBoxHandler)
                     {

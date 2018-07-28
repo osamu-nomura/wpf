@@ -131,6 +131,13 @@ namespace hsb.WPF
 
         #region ■ Event / Delegate
 
+        #region - GetView : Viewを取得する
+        /// <summary>
+        /// Viewを取得する
+        /// </summary>
+        public Func<Window> GetView;
+        #endregion
+
         #region - CloseView : Viewに対するクローズ通知
         /// <summary>
         /// Viewに対するクローズ通知
@@ -286,6 +293,20 @@ namespace hsb.WPF
         public virtual void ClosedView(ClosedViewArgs arg)
         {
             // イベントハンドラをクリアする
+            GetView = null;
+            CloseView = null;
+            ShowMessageBox = null;
+        }
+        #endregion
+
+        #region - DisconnectedView : ViewのDataContextから切断された
+        /// <summary>
+        /// ViewのDataContextから切断された
+        /// </summary>
+        public virtual void DisconnectedView()
+        {
+            // イベントハンドラをクリアする
+            GetView = null;
             CloseView = null;
             ShowMessageBox = null;
         }
