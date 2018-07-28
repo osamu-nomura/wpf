@@ -22,13 +22,14 @@ namespace hsb.WPF.EventArguments
         #endregion
 
         #endregion
+
         #region ■ Constructor 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public PropertyItemEventArgs(PropertyItemBase property)
         {
-            Property = Property;
+            Property = property;
         }
         #endregion
 

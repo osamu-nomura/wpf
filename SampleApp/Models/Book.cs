@@ -51,7 +51,8 @@ namespace SampleApp.Models
 
             // 書籍名
             TitleProperty = CreateDataBindProperty<string>("Title", null, v => 
-                { 
+                {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "書名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "書籍名";
@@ -61,6 +62,7 @@ namespace SampleApp.Models
             // 著者
             AuthorProperty = CreateDataBindProperty<string>("Author", null, v => 
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "著者名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "著者名";
@@ -70,6 +72,7 @@ namespace SampleApp.Models
             // 出版社
             PublisherProperty = CreateDataBindProperty<string>("Publisher", null, v => 
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(s => !String.IsNullOrEmpty(s), "出版社が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "出版社名";
@@ -79,6 +82,7 @@ namespace SampleApp.Models
             // カテゴリ
             CategoryProperty = CreateDataBindProperty<BookCategories?>("Category", null, v => 
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(n => n.HasValue, "カテゴリーが未入力です。");
                     v.Caption = "カテゴリー";
                     v.Description = $"{v.Caption}を指定してください。";
@@ -87,6 +91,7 @@ namespace SampleApp.Models
             // 価格
             PriceProperty = CreateDataBindProperty<decimal?>("Price", null, v =>
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(n => n >= 0, "価格が不正です。");
                     v.Caption = "価格";
                     v.Description = $"{v.Caption}を入力してください。";
@@ -95,6 +100,7 @@ namespace SampleApp.Models
             // 購入日
             PurchaseDateProperty = CreateDataBindProperty<DateTime?>("PurchaseDate", null, v =>
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(d => d.HasValue, "購入日が未入力です。");
                     v.Caption = "購入日";
                     v.Description = $"{v.Caption}を入力してください。";
@@ -103,6 +109,7 @@ namespace SampleApp.Models
             // 評価点
             ReviewPointProperty = CreateDataBindProperty<int?>("ReviewPoint", null, v =>
                 {
+                    v.AcceptInvalidValue = true;
                     v.CreateValidator(n => (n >= 0 && n <= 5), "評価点が不正です。");
                     v.Caption = "評価点";
                     v.Description = $"{v.Caption}を指定してください。";

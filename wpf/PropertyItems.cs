@@ -368,11 +368,11 @@ namespace hsb.WPF
                     RaisePropertyChanged(property.Name);
 
                 // モデルに変更を通知する
-                if (e.PropertyName == "IsChanged" && IsChangedFilter?.Invoke(property) == true)
+                if (e.PropertyName == "IsChanged" && (IsChangedFilter?.Invoke(property) ?? true))
                     RaisePropertyChanged(e.PropertyName);
 
                 // モデルにエラーを通知する
-                if (e.PropertyName == "HasError" && HasErrorFilter?.Invoke(property) == true)
+                if (e.PropertyName == "HasError" && (HasErrorFilter?.Invoke(property) ?? true))
                 {
                     RaisePropertyChanged(e.PropertyName);
                     if (property.HasError)
