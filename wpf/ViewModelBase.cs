@@ -299,11 +299,21 @@ namespace hsb.WPF
         }
         #endregion
 
+        #region - ConnectedView : ViewのDataContextに接続された
+        /// <summary>
+        /// ViewのDataContextに接続された
+        /// </summary>
+        public virtual void ConnectedView(Window view)
+        {
+            // 派生クラスでオーバーライドする
+        }
+        #endregion
+
         #region - DisconnectedView : ViewのDataContextから切断された
         /// <summary>
         /// ViewのDataContextから切断された
         /// </summary>
-        public virtual void DisconnectedView()
+        public virtual void DisconnectedView(Window view)
         {
             // イベントハンドラをクリアする
             GetView = null;

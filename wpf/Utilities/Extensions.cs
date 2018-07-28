@@ -48,7 +48,7 @@ namespace hsb.WPF.Utilities
                 if (e.OldValue is ViewModelBase)
                 {
                     var oldViewMolde = e.OldValue as ViewModelBase;
-                    oldViewMolde?.DisconnectedView();
+                    oldViewMolde?.DisconnectedView(window);
                 }
 
                 var vm = window.DataContext as ViewModelBase;
@@ -78,6 +78,9 @@ namespace hsb.WPF.Utilities
                                 window.Close();
                         };
                     }
+
+                    // ViewModelへ接続を通知する
+                    vm.ConnectedView(window);
                 }
             };
 
