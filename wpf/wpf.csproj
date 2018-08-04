@@ -69,6 +69,7 @@
     <Compile Include="PropertyItemBase.cs" />
     <Compile Include="PropertyItems.cs" />
     <Compile Include="Report.cs" />
+    <Compile Include="Utilities\CanvasTool.cs" />
     <Compile Include="Utilities\Enums.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="Utilities\IOFilters.cs" />

@@ -53,66 +53,66 @@ namespace SampleApp.Models
             TitleProperty = CreateDataBindProperty<string>("Title", null, v => 
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(s => !String.IsNullOrEmpty(s), "書名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "書籍名";
                     v.Description = $"{v.Caption}を入力してください。";
+                    v.CreateValidator(s => !String.IsNullOrEmpty(s), $"{v.Caption}が未入力です。");
                 });
 
             // 著者
             AuthorProperty = CreateDataBindProperty<string>("Author", null, v => 
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(s => !String.IsNullOrEmpty(s), "著者名が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "著者名";
                     v.Description = $"{v.Caption}を入力してください。";
+                    v.CreateValidator(s => !String.IsNullOrEmpty(s), $"{v.Caption}が未入力です。");
                 });
 
             // 出版社
             PublisherProperty = CreateDataBindProperty<string>("Publisher", null, v => 
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(s => !String.IsNullOrEmpty(s), "出版社が未入力です。");
                     v.IOFilter = IOFilters.Trim;
                     v.Caption = "出版社名";
                     v.Description = $"{v.Caption}を入力してください。";
+                    v.CreateValidator(s => !String.IsNullOrEmpty(s), $"{v.Caption}が未入力です。");
                 });
 
             // カテゴリ
             CategoryProperty = CreateDataBindProperty<BookCategories?>("Category", null, v => 
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(n => n.HasValue, "カテゴリーが未入力です。");
                     v.Caption = "カテゴリー";
                     v.Description = $"{v.Caption}を指定してください。";
+                    v.CreateValidator(n => n.HasValue, $"{v.Caption}が未入力です。");
                 });
 
             // 価格
             PriceProperty = CreateDataBindProperty<decimal?>("Price", null, v =>
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(n => n >= 0, "価格が不正です。");
                     v.Caption = "価格";
                     v.Description = $"{v.Caption}を入力してください。";
+                    v.CreateValidator(n => n >= 0, $"{v.Caption}が不正です。");
                 });
 
             // 購入日
             PurchaseDateProperty = CreateDataBindProperty<DateTime?>("PurchaseDate", null, v =>
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(d => d.HasValue, "購入日が未入力です。");
                     v.Caption = "購入日";
                     v.Description = $"{v.Caption}を入力してください。";
+                    v.CreateValidator(d => d.HasValue, $"{v.Caption}が未入力です。");
                 });
 
             // 評価点
             ReviewPointProperty = CreateDataBindProperty<int?>("ReviewPoint", null, v =>
                 {
                     v.AcceptInvalidValue = true;
-                    v.CreateValidator(n => (n >= 0 && n <= 5), "評価点が不正です。");
                     v.Caption = "評価点";
                     v.Description = $"{v.Caption}を指定してください。";
+                    v.CreateValidator(n => (n >= 0 && n <= 5), $"{v.Caption}が不正です。");
                 });
         }
         #endregion
