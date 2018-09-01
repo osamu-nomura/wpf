@@ -217,9 +217,9 @@ namespace hsb.WPF
         /// </summary>
         /// <param name="func">Func : 値の検証関数</param>
         /// <param name="errorMessage">string : エラーメッセージ</param>
-        public void CreateValidator(Func<T, bool> func, string errorMessage)
+        public void CreateValidator(Func<T, bool> func, string errorMessageFormat)
         {
-            Validator = (v) => Result.Create(func(v), errorMessage);
+            Validator = (v) => Result.Create(func(v), string.Format(errorMessageFormat, Caption));
         }
         #endregion
 
