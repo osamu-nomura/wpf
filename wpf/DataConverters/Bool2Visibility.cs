@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 
 namespace hsb.WPF.DataConverters
 {
@@ -11,6 +12,7 @@ namespace hsb.WPF.DataConverters
     /// <summary>
     /// bool <=> Visibility
     /// </summary>
+    [ValueConversion(typeof(bool), typeof(Visibility))]
     public class Bool2Visibility : DataConverterBase<bool, Visibility>
     {
         public Bool2Visibility()

@@ -56,6 +56,10 @@
     <Compile Include="DataConverters\Bool2Visibility.cs" />
     <Compile Include="DataConverters\DataConverterBase.cs" />
     <Compile Include="DataConverters\Enum2StingConverter.cs" />
+    <Compile Include="DataConverters\Int2String.cs" />
+    <Compile Include="DataConverters\NullableInt2String.cs" />
+    <Compile Include="DataConverters\StringOmission.cs" />
+    <Compile Include="DataConverters\ZeroSuppress.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="EventArguments\CloseViewEventArgs.cs" />
     <Compile Include="EventArguments\PropertyItemEventArgs.cs" />
