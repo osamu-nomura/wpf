@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace wpf.Utilities
+namespace hsb.WPF.Utilities
 {
     #region 【Class : CanvasTool】
     public class CanvasTool

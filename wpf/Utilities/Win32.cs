@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace wpf.Utilities
+namespace hsb.WPF.Utilities
 {
     #region 【Class : Win32】
     /// <summary>
