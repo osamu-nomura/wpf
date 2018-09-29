@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -284,4 +285,76 @@ namespace hsb.WPF.Utilities
     }
     #endregion
 
+    #region 【Extension Methods : PageMediaSizeName】
+    /// <summary>
+    /// PageMediaSizeName に対する拡張メソッド定義
+    /// </summary>
+    public static class PageMediaSizeNameExtensions
+    {
+        #region - ToDisplayName : 表示用の名称を取得する
+        /// <summary>
+        /// 表示用の名称を取得する
+        /// </summary>
+        /// <param name="pageSize">this PageMediaSizeName</param>
+        /// <returns>文字列</returns>
+        public static string ToDisplayName(this PageMediaSizeName pageSize)
+        {
+            switch (pageSize)
+            {
+                case PageMediaSizeName.ISOA0: return "A0";
+                case PageMediaSizeName.ISOA1: return "A1";
+                case PageMediaSizeName.ISOA2: return "A2";
+                case PageMediaSizeName.ISOA3: return "A3";
+                case PageMediaSizeName.ISOA4: return "A4";
+                case PageMediaSizeName.ISOA5: return "A5";
+                case PageMediaSizeName.ISOA6: return "A6";
+                case PageMediaSizeName.ISOA7: return "A7";
+                case PageMediaSizeName.ISOA8: return "A8";
+                case PageMediaSizeName.ISOA9: return "A9";
+                case PageMediaSizeName.ISOA10: return "A10";
+                case PageMediaSizeName.JISB0: return "B0";
+                case PageMediaSizeName.JISB1: return "B1";
+                case PageMediaSizeName.JISB2: return "B2";
+                case PageMediaSizeName.JISB3: return "B3";
+                case PageMediaSizeName.JISB4: return "B4";
+                case PageMediaSizeName.JISB5: return "B5";
+                case PageMediaSizeName.JISB6: return "B6";
+                case PageMediaSizeName.JISB7: return "B7";
+                case PageMediaSizeName.JISB8: return "B8";
+                case PageMediaSizeName.JISB9: return "B9";
+                case PageMediaSizeName.JISB10: return "B10";
+                default:
+                    return pageSize.ToString();
+            }
+        }
+        #endregion
+    }
+    #endregion
+
+    #region 【Extension Methods : PageOrientation】
+    /// <summary>
+    /// PageOrientation に対する拡張メソッド定義
+    /// </summary>
+    public static class PageOrientationExtensions
+    {
+        #region - ToDisplayName : 表示用の名称を取得する
+        /// <summary>
+        /// 表示用の名称を取得する
+        /// </summary>
+        /// <param name="pageOrient">this PageOrientation</param>
+        /// <returns>文字列</returns>
+        public static string ToDisplayName(this PageOrientation pageOrient)
+        {
+            switch (pageOrient)
+            {
+                case PageOrientation.Landscape: return "横";
+                case PageOrientation.Portrait: return "縦";
+                case PageOrientation.Unknown: return "不明";
+                default:
+                    return pageOrient.ToString();
+            }
+        }
+        #endregion
+    }
+    #endregion
 }

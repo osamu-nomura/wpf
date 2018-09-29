@@ -79,7 +79,6 @@
     <Compile Include="Utilities\IOFilters.cs" />
     <Compile Include="Utilities\ListProvider.cs" />
     <Compile Include="Utilities\Result.cs" />
-    <Compile Include="Utilities\Win32.cs" />
     <Compile Include="ViewManager.cs" />
     <Compile Include="ViewModelBase.cs" />
   </ItemGroup>
