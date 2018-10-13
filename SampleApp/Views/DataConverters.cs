@@ -28,7 +28,7 @@ namespace SampleApp.Views
     /// <summary>
     /// BookCategories -> String
     /// </summary>
-    class BookCategories2DisplayName : Enum2StingConverter<BookCategories?>
+    class BookCategories2DisplayName : Enum2Sting<BookCategories?>
     {
         protected override string Enum2String(BookCategories? e)
         {

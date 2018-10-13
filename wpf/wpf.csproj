@@ -55,7 +55,7 @@
     <Compile Include="DataBindPropertyItem.cs" />
     <Compile Include="DataConverters\Bool2Visibility.cs" />
     <Compile Include="DataConverters\DataConverterBase.cs" />
-    <Compile Include="DataConverters\Enum2StingConverter.cs" />
+    <Compile Include="DataConverters\Enum2Sting.cs" />
     <Compile Include="DataConverters\Int2String.cs" />
     <Compile Include="DataConverters\NullableInt2String.cs" />
     <Compile Include="DataConverters\StringOmission.cs" />

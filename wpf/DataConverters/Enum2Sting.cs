@@ -8,12 +8,12 @@ using System.Globalization;
 
 namespace hsb.WPF.DataConverters
 {
-    #region 【Class : Enum2StingConverter】
+    #region 【Class : Enum2Sting】
     /// <summary>
     /// Enum用のデーターコンバーター
     /// </summary>
     /// <typeparam name="T">型</typeparam>
-    public abstract class Enum2StingConverter<T> : IValueConverter
+    public abstract class Enum2Sting<T> : IValueConverter
     {
         #region ■ Portected Methods 
 
