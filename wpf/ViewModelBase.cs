@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 using hsb.WPF.EventArguments;
@@ -135,7 +136,7 @@ namespace hsb.WPF
         /// <summary>
         /// Viewを取得する
         /// </summary>
-        public Func<Window> GetView;
+        public Func<ContentControl> GetView;
         #endregion
 
         #region - CloseView : Viewに対するクローズ通知
@@ -303,7 +304,7 @@ namespace hsb.WPF
         /// <summary>
         /// ViewのDataContextに接続された
         /// </summary>
-        public virtual void ConnectedView(Window view)
+        public virtual void ConnectedView(ContentControl view)
         {
             // 派生クラスでオーバーライドする
         }
@@ -313,7 +314,7 @@ namespace hsb.WPF
         /// <summary>
         /// ViewのDataContextから切断された
         /// </summary>
-        public virtual void DisconnectedView(Window view)
+        public virtual void DisconnectedView(ContentControl view)
         {
             // イベントハンドラをクリアする
             GetView = null;

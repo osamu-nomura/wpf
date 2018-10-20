@@ -33,34 +33,34 @@ namespace hsb.WPF.Utilities
     }
     #endregion
 
-    #region 【Extension Methods : Window】
+    #region 【Extension Methods : ContentControl】
 
-    public static class WindowExtensions
+    public static class ContentControlExtensions
     {
-        #region - Setup : Windowクラスに対する共通初期設定
+        #region - Setup : ContentControlクラスに対する共通初期設定
         /// <summary>
-        /// Windowクラスに対する共通初期設定
-        /// 　Windowクラスのコンストラクタ内で、InitializeComponentより前に呼び出す。
+        /// ContentControlクラスに対する共通初期設定
+        /// 　ContentControlクラスのコンストラクタ内で、InitializeComponentより前に呼び出す。
         /// </summary>
-        /// <param name="window">this : Window</param>
+        /// <param name="control">this : ContentControl</param>
         /// <param name="options">初期設定オプションのセット : int</param>
-        public static void Setup(this Window window, WindowSetupOptions options = WindowSetupOptions.SetAll)
+        public static void Setup(this ContentControl control, WindowSetupOptions options = WindowSetupOptions.SetAll)
         {
             // DataContext変更時のイベントハンドラを設定する
-            window.DataContextChanged += (o, e) =>
+            control.DataContextChanged += (o, e) =>
             {
                 // 以前のViewModelに切断通知を送る
                 if (e.OldValue is ViewModelBase)
                 {
                     var oldViewMolde = e.OldValue as ViewModelBase;
-                    oldViewMolde?.DisconnectedView(window);
+                    oldViewMolde?.DisconnectedView(control);
                 }
 
-                var vm = window.DataContext as ViewModelBase;
+                var vm = control.DataContext as ViewModelBase;
                 if (vm != null)
                 {
                     // GetViewデレゲートの設定
-                    vm.GetView = () => { return window; };
+                    vm.GetView = () => { return control; };
 
                     // ShowMessageBoxイベントのハンドラを設定
                     if ((options & WindowSetupOptions.SetShowMessageBoxHandler) == WindowSetupOptions.SetShowMessageBoxHandler)
@@ -76,36 +76,43 @@ namespace hsb.WPF.Utilities
                     {
                         vm.CloseView += (sender, arg) =>
                         {
-                            // モーダルダイアログならDialogResultを設定、モードレスなら Closeメソッドを呼ぶ
-                            if (ComponentDispatcher.IsThreadModal)
-                                window.DialogResult = arg.DialogResult;
-                            else
-                                window.Close();
+                            if (control is Window)
+                            {
+                                // モーダルダイアログならDialogResultを設定、モードレスなら Closeメソッドを呼ぶ
+                                if (ComponentDispatcher.IsThreadModal)
+                                    (control as Window).DialogResult = arg.DialogResult;
+                                else
+                                    (control as Window).Close();
+                            }
                         };
                     }
 
                     // ViewModelへ接続を通知する
-                    vm.ConnectedView(window);
+                    vm.ConnectedView(control);
                 }
             };
 
-            // ClosingイベントでViewModelのCanCloseViewe()をコールする
-            window.Closing += (o, e) =>
+            if (control is Window)
             {
-                var vm = window.DataContext as ViewModelBase;
-                if (vm != null)
-                    e.Cancel = !vm.CanCloseView(new ViewModelBase.CanCloseViewArgs(ComponentDispatcher.IsThreadModal, window.DialogResult));
-            };
-
-            // ClosedイベントでViewModelのClosedView()をコールする
-            window.Closed += (o, e) =>
-            {
-                var vm = window.DataContext as ViewModelBase;
-                if (vm != null)
+                var window = control as Window;
+                // ClosingイベントでViewModelのCanCloseViewe()をコールする
+                window.Closing += (o, e) =>
                 {
-                    vm.ClosedView(new ViewModelBase.ClosedViewArgs(ComponentDispatcher.IsThreadModal, window.DialogResult));
-                }
-            };
+                    var vm = control.DataContext as ViewModelBase;
+                    if (vm != null)
+                        e.Cancel = !vm.CanCloseView(new ViewModelBase.CanCloseViewArgs(ComponentDispatcher.IsThreadModal, window.DialogResult));
+                };
+
+                // ClosedイベントでViewModelのClosedView()をコールする
+                window.Closed += (o, e) =>
+                {
+                    var vm = control.DataContext as ViewModelBase;
+                    if (vm != null)
+                    {
+                        vm.ClosedView(new ViewModelBase.ClosedViewArgs(ComponentDispatcher.IsThreadModal, window.DialogResult));
+                    }
+                };
+            }
         }
         #endregion
     }
