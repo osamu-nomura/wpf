@@ -71,28 +71,6 @@ namespace hsb.WPF.Utilities
             => direction.IsOutput() ? s : s.TrimEnd();
         #endregion
 
-        #region - Han2Zen : 半角文字を全角にする
-        /// <summary>
-        /// 半角文字を全角にする
-        /// </summary>
-        /// <param name="s">入力文字列</param>
-        /// <param name="direction">入出力方向</param>
-        /// <returns>出力文字列</returns>
-        public static string Han2Zen(string s, IOFilterDirection direction)
-            => direction.IsOutput() ? s : MapString.Han2Zen(s);
-        #endregion
-
-        #region - Zen2Han : 全角文字を半角にする
-        /// <summary>
-        /// 全角文字を半角にする
-        /// </summary>
-        /// <param name="s">入力文字列</param>
-        /// <param name="direction">入出力方向</param>
-        /// <returns>出力文字列</returns>
-        public static string Zen2Han(string s, IOFilterDirection direction)
-            => direction.IsOutput() ? s : MapString.Zen2Han(s);
-        #endregion
-
         #endregion
     }
     #endregion
